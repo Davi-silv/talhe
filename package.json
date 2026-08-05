@@ -3,6 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "author": {
+    "name": "Davi Barbosa da Silva",
+    "url": "https://github.com/Davi-silv"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Davi-silv/talhe.git"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
