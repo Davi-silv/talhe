@@ -61,7 +61,16 @@ export function Footer() {
             © {year} {brand.name}. Todos os direitos reservados.
           </p>
           <p>
-            Projeto de portfólio —{' '}
+            Desenvolvido por{' '}
+            <a
+              href={brand.github}
+              target="_blank"
+              rel="noreferrer"
+              className="text-stone transition-colors hover:text-fog"
+            >
+              {brand.author}
+            </a>
+            {' · '}
             <span className="text-stone">{brand.agency}</span>
           </p>
         </div>

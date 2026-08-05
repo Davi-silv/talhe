@@ -2,6 +2,8 @@
 
 E-commerce de moda masculina — projeto de portfólio da [Evolutiva Tech](https://evolutivatech.com.br).
 
+**Desenvolvido por [Davi Barbosa da Silva](https://github.com/Davi-silv)** · [Repositório](https://github.com/Davi-silv/talhe)
+
 ## Stack
 
 - React + TypeScript + Vite + Tailwind CSS

@@ -5,6 +5,8 @@ export const brand = {
   description:
     'Moda masculina com silhueta precisa. Peças pensadas para o dia a dia com presença.',
   agency: 'Evolutiva Tech',
+  author: 'Davi Barbosa da Silva',
+  github: 'https://github.com/Davi-silv/talhe',
 } as const
 
 export const navLinks = [
