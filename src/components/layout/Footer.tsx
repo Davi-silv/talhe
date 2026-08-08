@@ -28,6 +28,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link to="/carrinho" className="transition-colors hover:text-fog">
+                  Carrinho
+                </Link>
+              </li>
+              <li>
                 <a href="/#corte" className="transition-colors hover:text-fog">
                   O corte
                 </a>

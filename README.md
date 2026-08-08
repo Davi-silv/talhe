@@ -22,7 +22,7 @@ npm run dev
 
 - [x] Etapa 1 — Scaffold, design system e home
 - [x] Etapa 2 — Catálogo
-- [ ] Etapa 3 — Carrinho
+- [x] Etapa 3 — Carrinho
 - [ ] Etapa 4 — Auth
 - [ ] Etapa 5 — Checkout / Mercado Pago
 - [ ] Etapa 6 — Pedidos / admin

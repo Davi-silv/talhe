@@ -1,6 +1,7 @@
 import {
   type AnchorHTMLAttributes,
   type ButtonHTMLAttributes,
+  type MouseEventHandler,
   type ReactNode,
 } from 'react'
 import { Link } from 'react-router-dom'
@@ -30,6 +31,7 @@ type ButtonAsAnchor = SharedProps &
 type ButtonAsRouterLink = SharedProps & {
   to: string
   href?: undefined
+  onClick?: MouseEventHandler<HTMLAnchorElement>
 }
 
 type Props = ButtonAsButton | ButtonAsAnchor | ButtonAsRouterLink

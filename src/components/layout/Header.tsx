@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { CartButton } from '@/components/cart/CartButton'
 import { brand, navLinks } from '@/lib/brand'
 
 export function Header() {
@@ -86,36 +87,39 @@ export function Header() {
           })}
         </nav>
 
-        <button
-          type="button"
-          className={[
-            'relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-1.5 md:hidden',
-            solid ? 'text-ink' : 'text-fog',
-          ].join(' ')}
-          aria-expanded={menuOpen}
-          aria-controls="mobile-nav"
-          aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
-          onClick={() => setMenuOpen((open) => !open)}
-        >
-          <span
+        <div className="flex items-center gap-1 md:gap-2">
+          <CartButton solid={solid} onBeforeOpen={() => setMenuOpen(false)} />
+          <button
+            type="button"
             className={[
-              'block h-0.5 w-6 origin-center bg-current transition-transform duration-300',
-              menuOpen ? 'translate-y-2 rotate-45' : '',
+              'relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-1.5 md:hidden',
+              solid ? 'text-ink' : 'text-fog',
             ].join(' ')}
-          />
-          <span
-            className={[
-              'block h-0.5 w-6 bg-current transition-opacity duration-300',
-              menuOpen ? 'opacity-0' : '',
-            ].join(' ')}
-          />
-          <span
-            className={[
-              'block h-0.5 w-6 origin-center bg-current transition-transform duration-300',
-              menuOpen ? '-translate-y-2 -rotate-45' : '',
-            ].join(' ')}
-          />
-        </button>
+            aria-expanded={menuOpen}
+            aria-controls="mobile-nav"
+            aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
+            onClick={() => setMenuOpen((open) => !open)}
+          >
+            <span
+              className={[
+                'block h-0.5 w-6 origin-center bg-current transition-transform duration-300',
+                menuOpen ? 'translate-y-2 rotate-45' : '',
+              ].join(' ')}
+            />
+            <span
+              className={[
+                'block h-0.5 w-6 bg-current transition-opacity duration-300',
+                menuOpen ? 'opacity-0' : '',
+              ].join(' ')}
+            />
+            <span
+              className={[
+                'block h-0.5 w-6 origin-center bg-current transition-transform duration-300',
+                menuOpen ? '-translate-y-2 -rotate-45' : '',
+              ].join(' ')}
+            />
+          </button>
+        </div>
       </div>
 
       <div
