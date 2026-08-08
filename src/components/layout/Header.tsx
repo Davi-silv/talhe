@@ -1,10 +1,14 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { AccountLink } from '@/components/auth/AccountLink'
 import { CartButton } from '@/components/cart/CartButton'
 import { brand, navLinks } from '@/lib/brand'
+import { useAuth } from '@/hooks/useAuth'
+import { getUserFirstName } from '@/lib/auth'
 
 export function Header() {
   const { pathname } = useLocation()
+  const { user } = useAuth()
   const isHome = pathname === '/'
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
@@ -87,7 +91,8 @@ export function Header() {
           })}
         </nav>
 
-        <div className="flex items-center gap-1 md:gap-2">
+        <div className="flex items-center gap-3 md:gap-4">
+          <AccountLink solid={solid} onNavigate={() => setMenuOpen(false)} />
           <CartButton solid={solid} onBeforeOpen={() => setMenuOpen(false)} />
           <button
             type="button"
@@ -155,6 +160,13 @@ export function Header() {
               </a>
             )
           })}
+          <Link
+            to={user ? '/conta' : '/entrar'}
+            className="font-display text-3xl font-bold text-ink"
+            onClick={() => setMenuOpen(false)}
+          >
+            {user ? getUserFirstName(user) : 'Entrar'}
+          </Link>
         </nav>
       </div>
     </header>

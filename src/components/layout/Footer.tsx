@@ -33,6 +33,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link to="/entrar" className="transition-colors hover:text-fog">
+                  Conta
+                </Link>
+              </li>
+              <li>
                 <a href="/#corte" className="transition-colors hover:text-fog">
                   O corte
                 </a>

@@ -2,11 +2,13 @@ import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { Button } from '@/components/ui/Button'
 import { CartLine } from '@/components/cart/CartLine'
+import { useAuth } from '@/hooks/useAuth'
 import { useCart } from '@/hooks/useCart'
 import { formatPrice } from '@/lib/format'
 
 export function CartDrawer() {
   const { pathname } = useLocation()
+  const { user } = useAuth()
   const {
     items,
     itemCount,
@@ -130,14 +132,25 @@ export function CartDrawer() {
                 <Button to="/carrinho" variant="ghost" className="w-full" onClick={closeCart}>
                   Ver sacola
                 </Button>
-                <Button
-                  variant="primary"
-                  className="w-full"
-                  disabled
-                  title="Checkout na etapa 5"
-                >
-                  Finalizar pedido
-                </Button>
+                {user ? (
+                  <Button
+                    variant="primary"
+                    className="w-full"
+                    disabled
+                    title="Checkout na etapa 5"
+                  >
+                    Finalizar pedido
+                  </Button>
+                ) : (
+                  <Button
+                    to="/entrar?next=/carrinho"
+                    variant="primary"
+                    className="w-full"
+                    onClick={closeCart}
+                  >
+                    Entrar para finalizar
+                  </Button>
+                )}
               </div>
             </footer>
           </>

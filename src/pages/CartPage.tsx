@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/Button'
 import { CartLine } from '@/components/cart/CartLine'
+import { useAuth } from '@/hooks/useAuth'
 import { useCart } from '@/hooks/useCart'
 import { formatPrice } from '@/lib/format'
 
 export function CartPage() {
+  const { user } = useAuth()
   const { items, itemCount, subtotalCents, setQuantity, removeItem, clearCart } =
     useCart()
 
@@ -91,9 +93,21 @@ export function CartPage() {
           </div>
 
           <div className="mt-8 grid gap-3">
-            <Button variant="primary" size="lg" className="w-full" disabled title="Checkout na etapa 5">
-              Finalizar pedido
-            </Button>
+            {user ? (
+              <Button
+                variant="primary"
+                size="lg"
+                className="w-full"
+                disabled
+                title="Checkout na etapa 5"
+              >
+                Finalizar pedido
+              </Button>
+            ) : (
+              <Button to="/entrar?next=/carrinho" variant="primary" size="lg" className="w-full">
+                Entrar para finalizar
+              </Button>
+            )}
             <Link
               to="/colecao"
               className="text-center font-body text-sm text-ink-muted underline decoration-ink/20 underline-offset-4 hover:text-ink"
